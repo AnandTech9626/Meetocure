@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.0/babel.min.js"></script>
+    <style>
+        /* OTP Verification Page CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .otp-container {
+            width: 320px;
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        h1 {
+            font-size: 60px;
+            text-align: center;
+            margin: 0;
+            color: #336666;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #336666;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 18px;
+            color: #336666;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .otp-inputs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .otp-inputs input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .otp-inputs input:focus {
+            border-color: #336666;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .verify-button, .clear-button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .verify-button {
+            background-color: #336666;
+            color: white;
+        }
+
+        .verify-button:hover {
+            background-color: #075765;
+        }
+
+        .clear-button {
+            background-color: #aaa;
+            color: white;
+        }
+
+        .clear-button:hover {
+            background-color: #888;
+        }
+
+        .resend-link {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #336666;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 60px;
+            color:rgb(16, 145, 149);
+            font-size: 45px;
+            background: linear-gradient(to bottom, #395A7F, #1C3D4A);
+            -webkit-background-clip: text;
+            color: transparent;
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        function OTPVerification() {
+            const [otp, setOtp] = React.useState(Array(6).fill(""));
+
+            const handleOtpChange = (e, index) => {
+                const value = e.target.value;
+                if (/[^0-9]/.test(value)) return; // Allow only numbers
+
+                const newOtp = [...otp];
+                newOtp[index] = value;
+                setOtp(newOtp);
+
+                // Move focus to the next field
+                if (value !== "" && index < 5) {
+                    document.getElementById(`otp-${index + 1}`).focus();
+                }
+            };
+
+            const handleKeyDown = (e, index) => {
+                if (e.key === "Backspace" && otp[index] === "" && index > 0) {
+                    document.getElementById(`otp-${index - 1}`).focus();
+                }
+            };
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                const otpCode = otp.join("");
+                alert(`OTP Entered: ${otpCode}`);
+            };
+
+            const handleClear = () => {
+                setOtp(Array(6).fill(""));
+                document.getElementById("otp-0").focus();
+            };
+
+            const handleResend = () => {
+                alert("OTP has been resent to your mobile number.");
+                setOtp(Array(6).fill(""));
+            };
+
+            return (
+                <div className="otp-container">
+                    <h1 class="logo">🧬</h1>
+                    <h4>Meetocure</h4>
+                    <h2>Verify Code</h2>
+                    <p>Enter the code we just sent to your mobile number</p>
+                    <form onSubmit={handleSubmit}>
+                        <div className="otp-inputs">
+                            {otp.map((digit, index) => (
+                                <input
+                                    key={index}
+                                    type="text"
+                                    id={`otp-${index}`}
+                                    value={digit}
+                                    onChange={(e) => handleOtpChange(e, index)}
+                                    onKeyDown={(e) => handleKeyDown(e, index)}
+                                    maxLength="1"
+                                    autoFocus={index === 0}
+                                    required
+                                />
+                            ))}
+                        </div>
+                        <div className="buttons">
+                            <button type="submit" className="verify-button">Verify</button>
+                            
+                        </div>
+                    </form>
+                    <p>Didn't get the code? <a className="resend-link" onClick={handleResend}>Resend</a></p>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<OTPVerification />, document.getElementById("root"));
+    </script>
+</body>
+</html>

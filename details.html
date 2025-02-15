@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Details</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111827;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container */
+        .container {
+            background: #fff;
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn, .bell {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Notification Icon */
+        .notification {
+            position: relative;
+        }
+
+        .red-dot {
+            position: absolute;
+            top: 0;
+            right: 5px;
+            width: 6px;
+            height: 6px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        /* Doctor Profile */
+        .doctor-profile {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .doctor-profile img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+        }
+
+        .doctor-info {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .favorite {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .number {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Sections */
+        .about, .working-time, .reviews {
+            margin-top: 15px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Reviews */
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .see-all {
+            background: none;
+            border: none;
+            color: blue;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .review-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .review-box img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .rating {
+            color: gold;
+        }
+
+        .review-text {
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Appointment Button */
+        .appointment-link {
+            text-decoration: none; /* Remove underline */
+        }
+
+        .appointment-btn {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            background: #336666;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .appointment-btn:hover {
+            background: #336665;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-btn">&larr;</button>
+            <h2>Doctor Details</h2>
+            <div class="notification">
+                <span class="red-dot"></span>
+                <button class="bell">&#128276;</button>
+            </div>
+        </div>
+
+        <!-- Doctor Profile -->
+        <div class="doctor-profile">
+            <img src="https://via.placeholder.com/80" alt="Doctor">
+            <div class="doctor-info">
+                <h3>Dr. David Patel</h3>
+                <p>Cardiologist</p>
+                <p class="clinic">Cardiology Center, USA</p>
+            </div>
+            <button class="favorite">&hearts;</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div>
+                <p class="number">2,000+</p>
+                <p>Patients</p>
+            </div>
+            <div>
+                <p class="number">10+</p>
+                <p>Experience</p>
+            </div>
+            <div>
+                <p class="number">5</p>
+                <p>Rating</p>
+            </div>
+            <div>
+                <p class="number">1,872</p>
+                <p>Reviews</p>
+            </div>
+        </div>
+
+        <!-- About -->
+        <div class="about">
+            <h4>About me</h4>
+            <p>Dr. David Patel, a dedicated cardiologist, brings a wealth of experience to Golden Gate Cardiology Center in Golden Gate, CA.</p>
+        </div>
+
+        <!-- Working Time -->
+        <div class="working-time">
+            <h4>Working Time</h4>
+            <p>Monday-Friday, 08:00 AM - 18:00 PM</p>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews">
+            <div class="review-header">
+                <h4>Reviews</h4>
+                <button class="see-all">See All</button>
+            </div>
+            <div class="review-box">
+                <img src="https://via.placeholder.com/40" alt="User">
+                <div>
+                    <h5>Emily Anderson</h5>
+                    <p class="rating">★★★★★</p>
+                    <p class="review-text">Dr. Patel is a true professional who genuinely cares about his patients. I highly recommend him for exceptional cardiac care.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointment Button with Link -->
+        <a href="appointment.html" class="appointment-link">
+            <button class="appointment-btn">Book Appointment</button>
+        </a>
+    </div>
+
+</body>
+</html>

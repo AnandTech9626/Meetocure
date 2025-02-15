@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://127.0.0.1:5500/h.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Listing</title>
+    <script src="./H_files/a076d05399.js.download" crossorigin="anonymous"></script>
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Prevent full page scroll */
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            height: 90vh; /* Take most of the screen height */
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header button {
+            border: none;
+            background: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Search Bar */
+        .search-container {
+            padding: 10px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .filters button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .filters .active {
+            background: #008080;
+            color: white;
+        }
+
+        /* Hospital List */
+        .hospital-list {
+            flex-grow: 1; /* Make it take remaining space */
+            overflow-y: auto; /* Enable scrolling */
+            padding: 10px;
+        }
+
+        .hospital-card {
+            display: flex;
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            align-items: center;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .hospital-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .hospital-info {
+            flex-grow: 1;
+        }
+
+        .hospital-info h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .hospital-info p {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .rating {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .fav-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .nav-btn {
+            border: none;
+            background: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav-btn.active {
+            color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
+            <h2>All Hospitals</h2>
+            <button class="notification-btn"><i class="fas fa-bell"></i></button>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" placeholder="Search Hospitals..." id="search">
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter active">All</button>
+            <button class="filter">hospital</button>
+            <button class="filter">Clinic</button>
+            <button class="filter">Dentist hospital</button>
+        </div>
+
+        <!-- Hospital List -->
+        <div class="hospital-list">
+            <!-- Sample Hospital Cards -->
+            <div class="hospital-card">
+                <img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg" alt="Hospital">
+                <div class="hospital-info">
+                    <h3>City Hospital</h3>
+                    <p>General Hospital</p>
+                    <p>📍 New York, USA</p>
+                    <p class="rating">⭐ 4.8 (150 Reviews)</p>
+                </div>
+                <button class="fav-btn"><i class="far fa-heart"></i></button>
+            </div>
+
+            <!-- Add more hospitals to test scrolling -->
+            <div class="hospital-card">
+                <img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg" alt="Hospital">
+                <div class="hospital-info">
+                    <h3>Heart Care Hospital</h3>
+                    <p>Cardiology</p>
+                    <p>📍 California, USA</p>
+                    <p class="rating">⭐ 4.9 (200 Reviews)</p>
+                </div>
+                <button class="fav-btn"><i class="far fa-heart"></i></button>
+            </div>
+
+            <div class="hospital-card">
+                <img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg" alt="Hospital">
+                <div class="hospital-info">
+                    <h3>Bright Smiles Clinic</h3>
+                    <p>Dentistry</p>
+                    <p>📍 Los Angeles, USA</p>
+                    <p class="rating">⭐ 4.7 (120 Reviews)</p>
+                </div>
+                <button class="fav-btn"><i class="far fa-heart"></i></button>
+            </div>
+
+            <!-- Duplicating for scrolling effect -->
+            <div class="hospital-card"><img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg"><div class="hospital-info"><h3>Golden Valley Hospital</h3><p>Pediatrics</p></div></div>
+            <div class="hospital-card"><img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg"><div class="hospital-info"><h3>St. John’s Medical Center</h3><p>Orthopedics</p></div></div>
+            <div class="hospital-card"><img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg"><div class="hospital-info"><h3>Blue Ridge Health</h3><p>Neurology</p></div></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".filter").forEach(btn => {
+            btn.addEventListener("click", function() {
+                document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+            });
+        });
+
+        document.querySelectorAll(".fav-btn").forEach(btn => {
+            btn.addEventListener("click", function() {
+                this.classList.toggle("liked");
+                this.innerHTML = this.classList.contains("liked") ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>';
+            });
+        });
+    </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment Booking</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 15px;
+        }
+        .time-grid button {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .time-grid button:hover {
+            background: #ddd;
+        }
+        .selected {
+            background: #336666 !important;
+            color: white;
+        }
+        .confirm-button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            background: #336666;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .confirm-button:hover {
+            background: #336665;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Doctor Details</h2>
+        <h3>Working Time</h3>
+        <input type="text" id="calendar" placeholder="Select Date">
+        <h3>Select Hour</h3>
+        <div class="time-grid" id="time-grid"></div>
+        <button class="confirm-button" id="confirm-btn">Confirm</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#calendar", {
+            enableTime: false,
+            dateFormat: "Y-m-d",
+        });
+
+        const timeGrid = document.getElementById('time-grid');
+        const confirmBtn = document.getElementById('confirm-btn');
+        const timeSlots = [
+            "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
+            "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM",
+            "6:00 PM", "6:30 PM", "7:00 PM"
+        ];
+
+        let selectedTime = "10:00 AM";
+
+        function createButtons(container, items, selectedValue) {
+            container.innerHTML = "";
+            items.forEach(item => {
+                const button = document.createElement('button');
+                button.textContent = item;
+                if (item === selectedValue) {
+                    button.classList.add('selected');
+                }
+                button.addEventListener('click', () => {
+                    selectedTime = item;
+                    createButtons(container, items, selectedTime);
+                });
+                container.appendChild(button);
+            });
+        }
+
+        createButtons(timeGrid, timeSlots, selectedTime);
+
+        confirmBtn.addEventListener('click', () => {
+            Swal.fire({
+                title: "🎉 Congratulations!",
+                text: `Your appointment is confirmed for ${selectedTime}.`,
+                icon: "success",
+                confirmButtonText: "OK",
+                backdrop: true,
+                timer: 3000,
+                showClass: {
+                    popup: 'animate__animated animate__zoomIn'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__zoomOut'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
