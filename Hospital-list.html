@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<!-- saved from url=(0028)http://127.0.0.1:5500/h.html -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Listing</title>
     <script src="./H_files/a076d05399.js.download" crossorigin="anonymous"></script>
     <style>
-        /* Google Font */
+      
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
         * {
@@ -39,7 +39,7 @@
             overflow: hidden;
         }
 
-        /* Header */
+     
         header {
             display: flex;
             justify-content: space-between;
@@ -56,7 +56,7 @@
             cursor: pointer;
         }
 
-        /* Search Bar */
+  
         .search-container {
             padding: 10px;
         }
@@ -69,7 +69,7 @@
             outline: none;
         }
 
-        /* Filters */
+      
         .filters {
             display: flex;
             gap: 10px;
@@ -91,7 +91,7 @@
             color: white;
         }
 
-        /* Hospital List */
+      
         .hospital-list {
             flex-grow: 1; /* Make it take remaining space */
             overflow-y: auto; /* Enable scrolling */
@@ -145,7 +145,7 @@
             top: 10px;
         }
 
-        /* Bottom Navigation */
+      
         .bottom-nav {
             display: flex;
             justify-content: space-around;
@@ -169,19 +169,19 @@
 <body>
 
     <div class="container">
-        <!-- Header -->
+       
         <header>
             <button class="back-btn"><i class="fas fa-arrow-left"></i></button>
             <h2>All Hospitals</h2>
             <button class="notification-btn"><i class="fas fa-bell"></i></button>
         </header>
 
-        <!-- Search Bar -->
+      
         <div class="search-container">
             <input type="text" placeholder="Search Hospitals..." id="search">
         </div>
 
-        <!-- Filters -->
+  
         <div class="filters">
             <button class="filter active">All</button>
             <button class="filter">hospital</button>
@@ -189,7 +189,6 @@
             <button class="filter">Dentist hospital</button>
         </div>
 
-        <!-- Hospital List -->
         <div class="hospital-list">
             <!-- Sample Hospital Cards -->
             <div class="hospital-card">
@@ -203,7 +202,6 @@
                 <button class="fav-btn"><i class="far fa-heart"></i></button>
             </div>
 
-            <!-- Add more hospitals to test scrolling -->
             <div class="hospital-card">
                 <img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg" alt="Hospital">
                 <div class="hospital-info">
@@ -226,7 +224,7 @@
                 <button class="fav-btn"><i class="far fa-heart"></i></button>
             </div>
 
-            <!-- Duplicating for scrolling effect -->
+          
             <div class="hospital-card"><img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg"><div class="hospital-info"><h3>Golden Valley Hospital</h3><p>Pediatrics</p></div></div>
             <div class="hospital-card"><img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg"><div class="hospital-info"><h3>St. John’s Medical Center</h3><p>Orthopedics</p></div></div>
             <div class="hospital-card"><img src="./H_files/eb2f955cc1ba643c0d3a9e68543a9aa7.jpg"><div class="hospital-info"><h3>Blue Ridge Health</h3><p>Neurology</p></div></div>
@@ -251,7 +249,7 @@
 
 <!-- Code injected by live-server -->
 <script>
-	// <![CDATA[  <-- For SVG support
+	
 	if ('WebSocket' in window) {
 		(function () {
 			function refreshCSS() {
