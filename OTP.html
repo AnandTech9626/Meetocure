@@ -8,7 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.0/babel.min.js"></script>
     <style>
-        /* OTP Verification Page CSS */
+       
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -141,7 +141,7 @@
                 newOtp[index] = value;
                 setOtp(newOtp);
 
-                // Move focus to the next field
+              
                 if (value !== "" && index < 5) {
                     document.getElementById(`otp-${index + 1}`).focus();
                 }
